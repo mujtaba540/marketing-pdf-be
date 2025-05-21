@@ -114,6 +114,10 @@ app.post("/generate-pdf", async (req, res) => {
   }
 });
 
+app.get("/", async (req, res) => {
+  res.send("Server running");
+});
+
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
