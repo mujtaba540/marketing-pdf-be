@@ -56,17 +56,37 @@ app.post("/generate-pdf", async (req, res) => {
 
     if (Array.isArray(property.imgUrl)) {
       const page3Template = await getCompiledTemplate("page-3.handlebars");
+      const lastPage = property.imgUrl.pop();
 
       for (const imgSrc of property.imgUrl) {
         compiledPages.push(
-          `<div class="pdf-page">${page3Template({ imgSrc })}</div>`
+          `<div class="pdf-page">${page3Template({
+            imgSrc,
+          })}</div>`
         );
       }
-    }
 
-    if (property?.addContactPage) {
-      const page4Template = await getCompiledTemplate("page-4.handlebars");
-      compiledPages.push(`<div class="pdf-page">${page4Template({})}</div>`);
+      if (lastPage) {
+        const page4Template = await getCompiledTemplate("page-4.handlebars");
+        const showContact =
+          property?.brokderDetails.toLowerCase() === "none".toLowerCase()
+            ? false
+            : true;
+        let contactUrl = "";
+        if (showContact) {
+          contactUrl =
+            property?.brokderDetails.toLowerCase() === "oliver".toLowerCase()
+              ? "https://sha-properties.s3.eu-north-1.amazonaws.com/contact-details/v1/oliver.jpeg"
+              : "https://sha-properties.s3.eu-north-1.amazonaws.com/contact-details/v1/diana.jpeg";
+        }
+        compiledPages.push(
+          `<div class="pdf-page">${page4Template({
+            imgSrc: lastPage,
+            showContact,
+            contactUrl,
+          })}</div>`
+        );
+      }
     }
 
     const fullHtml = `

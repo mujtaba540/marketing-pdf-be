@@ -26,7 +26,7 @@
 
         .main-width-fluid {
             width: 100%;
-            /* height: 1100px; */
+            height: 1100px;
             padding-top: 0.5rem;
             display: flex;
             flex-direction: column;
@@ -38,6 +38,18 @@
             print-color-adjust: exact;
         }
 
+        .img-fluid-print {
+            max-width: 100%;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .img-fluid-contact{
+            max-width: 85%;
+            height: auto;
+            margin-top: 8px;
+        }
     </style>
 
 </head>
@@ -48,34 +60,15 @@
             <img src="https://sha-properties.s3.eu-north-1.amazonaws.com/logos/sha-2.png"
                 alt="SHARESIDENCES Emirates Logo" height="40">
         </div>
-        <div class="vstack gap-2 mt-5">
-            <h2 class="text-center">Contact Brokers</h2>
-
-            <div class="hstack gap-4 align-items-center">
-                <div class="flex-grow-1 ">
-                  <div class="card gradient-bg">
-                    <div class="card-body">
-                      <h3 class="card-title">Oliver Rubens</h3>
-                      <p class="card-text">Sales Manager - Exclusive Project Sales</p>
-                      <p class="card-text">Email: Oliver.Rubens@me.knightfrank.com</p>
-                      <p class="card-text">Mobile: +971 54 550 5885</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="flex-grow-1 gradient-bg">
-                  <div class="card gradient-bg">
-                    <div class="card-body">
-                      <h3 class="card-title">Diana Ameliushina</h3>
-                      <p class="card-text">Sales Manager - Exclusive Project Sales</p>
-                      <p class="card-text">Email: Diana.Ameliushina@me.knightfrank.com</p>
-                      <p class="card-text">Mobile: +971 56 600 3010</p>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
+        <div class="img-fluid-print">
+            <img src="{{imgSrc}}" class="img-fluid-print" />
         </div>
+        {{#if showContact}}
+        <div class="d-flex justify-content-center">
+            <img src="{{contactUrl}}"
+                class="img-fluid-contact" />
+        </div>
+        {{/if}}
     </div>
 </body>
 
