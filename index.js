@@ -49,6 +49,12 @@ app.post("/generate-pdf", async (req, res) => {
       type === "apartment"
         ? "page-2-apt.handlebars"
         : "page-2-villa.handlebars";
+    if (property.pricingDetails === "fifty") {
+      // show 50/50 else 70/30 one
+      property.showFiftyPlan = true;
+    } else {
+      property.showSeventyPlan = true;
+    }
     const page2Template = await getCompiledTemplate(page2Filename);
     compiledPages.push(
       `<div class="pdf-page">${page2Template(property)}</div>`

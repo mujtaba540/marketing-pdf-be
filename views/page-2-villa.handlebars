@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
         crossorigin="anonymous"></script>
-    <style>
+  <style>
         body,
         html {
             height: 100vh;
@@ -21,12 +21,10 @@
             padding: 0;
             font-family: 'Poppins', sans-serif;
             box-sizing: border-box;
-            font-size: 10px;
         }
 
         .main-width-fluid {
             width: 100%;
-            height: 1100px;
             padding-top: 0.5rem;
             display: flex;
             flex-direction: column;
@@ -53,7 +51,6 @@
         }
 
         .note-text {
-            font-size: 0.8rem;
             color: gray;
         }
 
@@ -72,6 +69,8 @@
             <img src="https://sha-properties.s3.eu-north-1.amazonaws.com/logos/sha-2.png"
                 alt="SHARESIDENCES Emirates Logo" height="40">
         </div>
+
+         <div class="flex-grow-1 d-flex flex-column mt-5 gap-5">
         <div class="d-flex justify-content-center mt-3">
             <div class="text-center bg-dark-gray rounded-pill px-5 sales-container py-2">
                 <h4 class="fw-bold mb-0 text-uppercase">Unit Details</h4>
@@ -99,8 +98,8 @@
                 <div class="col-6 hstack justify-content-between">Project Status: <p class="text-end mb-0">Off-Plan
                     </p>
                 </div>
-                <div class="col-6 hstack justify-content-between">Estimated Completion Date: <p
-                        class="text-end mb-0">Q1 - 2027</p>
+                <div class="col-6 hstack justify-content-between">Estimated Completion Date: <p class="text-end mb-0">Q1
+                        - 2027</p>
                 </div>
             </div>
 
@@ -109,7 +108,8 @@
                 <div class="col-6 hstack justify-content-between bg-dark-gray">Plot Number: <p class="text-end mb-0">
                         {{unit_code}} </p>
                 </div>
-                <div class="col-6 hstack justify-content-between bg-dark-gray">BUA: <p class="text-end mb-0">{{bua_sqft}}
+                <div class="col-6 hstack justify-content-between bg-dark-gray">BUA: <p class="text-end mb-0">
+                        {{bua_sqft}}
                     </p>
                 </div>
             </div>
@@ -130,6 +130,7 @@
 
         </div>
 
+        {{#if showFiftyPlan}}
         <div class="bordered-box mb-4">
             <div class="section-title">PAYMENT PLAN - 50/50</div>
             <div class="d-flex justify-content-between gap-1 align-item-center">
@@ -163,7 +164,8 @@
                 </tbody>
             </table>
         </div>
-
+        {{/if}}
+        {{#if showSeventyPlan}}
         <div class="bordered-box mb-4">
             <div class="section-title">PAYMENT PLAN - 70/30 PH</div>
             <div class="d-flex justify-content-between gap-1 align-item-center">
@@ -197,6 +199,8 @@
                 </tbody>
             </table>
         </div>
+        {{/if}}
+         </div>
 
         <p class="note-text fst-italic text-center">
             Note: Please note this payment plan is provided for your information only and is not an obligation or

@@ -21,12 +21,10 @@
             padding: 0;
             font-family: 'Poppins', sans-serif;
             box-sizing: border-box;
-            font-size: 10px;
         }
 
         .main-width-fluid {
             width: 100%;
-            height: 1100px;
             padding-top: 0.5rem;
             display: flex;
             flex-direction: column;
@@ -53,7 +51,6 @@
         }
 
         .note-text {
-            font-size: 0.8rem;
             color: gray;
         }
 
@@ -72,133 +69,142 @@
             <img src="https://sha-properties.s3.eu-north-1.amazonaws.com/logos/sha-2.png"
                 alt="SHARESIDENCES Emirates Logo" height="40">
         </div>
-        <div class="d-flex justify-content-center mt-3">
-            <div class="text-center bg-dark-gray rounded-pill px-5 sales-container py-2">
-                <h4 class="fw-bold mb-0 text-uppercase">Unit Details</h4>
-                <p class="mb-0">{{unit_code}}</p>
-            </div>
-        </div>
 
-
-        <div class="d-flex justify-content-end mb-2 ">
-            {{!-- <!-- <span>Property Reference No: ____________</span> --> --}}
-            <span><strong>Date:</strong>{{currentDate}} </span>
-        </div>
-
-        <div class="bordered-box mb-2">
-            <div class="section-title">PROJECTS DETAILS</div>
-            <div class="row justify-content-between  mb-2">
-                <div class="col-6 project-name bg-dark-gray hstack justify-content-between">Project Name: <p
-                        class="text-end mb-0">SHA Residences</p>
-                </div>
-                <div class="col-6 bg-dark-gray hstack justify-content-between">Location: <p class="text-end mb-0">SHA
-                        Islands AlJurf</p>
+        <div class="flex-grow-1 d-flex flex-column mt-5 gap-5">
+            <div class="d-flex justify-content-center mt-3">
+                <div class="text-center bg-dark-gray rounded-pill px-5 sales-container py-2">
+                    <h4 class="fw-bold mb-0 text-uppercase">Unit Details</h4>
+                    <p class="mb-0">{{unit_code}}</p>
                 </div>
             </div>
-            <div class="row justify-content-between mb-2">
-                <div class="col-6 hstack justify-content-between">Project Status: <p class="text-end mb-0">Off-Plan
-                    </p>
-                </div>
-                <div class="col-6 hstack justify-content-between">Estimated Completion Date: <p
-                        class="text-end mb-0">Q1 - 2027</p>
-                </div>
+            <div class="d-flex justify-content-end mb-2 ">
+                {{!-- <!-- <span>Property Reference No: ____________</span> --> --}}
+                <span><strong>Date:</strong>{{currentDate}} </span>
             </div>
 
-            <div class="section-title">PROPERTY DETAILS &amp; SIZING DETAILS</div>
-            <div class="row justify-content-between mb-2 ">
-                <div class="col-6 hstack justify-content-between bg-dark-gray">Plot Number: <p class="text-end mb-0">
-                        {{unit_code}}</p>
+            <div class="bordered-box mb-2">
+                <div class="section-title">PROJECTS DETAILS</div>
+                <div class="row justify-content-between  mb-2">
+                    <div class="col-6 project-name bg-dark-gray hstack justify-content-between">Project Name: <p
+                            class="text-end mb-0">SHA Residences</p>
+                    </div>
+                    <div class="col-6 bg-dark-gray hstack justify-content-between">Location: <p class="text-end mb-0">
+                            SHA
+                            Islands AlJurf</p>
+                    </div>
                 </div>
-                <div class="col-6 hstack justify-content-between bg-dark-gray">Balcony Size: <p
-                        class="text-end mb-0">{{bal_sqft}}</p>
+                <div class="row justify-content-between mb-2">
+                    <div class="col-6 hstack justify-content-between">Project Status: <p class="text-end mb-0">Off-Plan
+                        </p>
+                    </div>
+                    <div class="col-6 hstack justify-content-between">Estimated Completion Date: <p
+                            class="text-end mb-0">Q1
+                            - 2027</p>
+                    </div>
                 </div>
-            </div>
-            <div class="row justify-content-between mb-2 ">
-                <div class="col-6 hstack justify-content-between">Apartment Type: <p class="text-end mb-0">
-                        {{propertyType}} </p>
+
+                <div class="section-title">PROPERTY DETAILS &amp; SIZING DETAILS</div>
+                <div class="row justify-content-between mb-2 ">
+                    <div class="col-6 hstack justify-content-between bg-dark-gray">Plot Number: <p
+                            class="text-end mb-0">
+                            {{unit_code}}</p>
+                    </div>
+                    <div class="col-6 hstack justify-content-between bg-dark-gray">Balcony Size: <p
+                            class="text-end mb-0">
+                            {{bal_sqft}}</p>
+                    </div>
                 </div>
-                <div class="col-6 hstack justify-content-between">Total Area: <p class="text-end mb-0">{{sqft}}</p>
+                <div class="row justify-content-between mb-2 ">
+                    <div class="col-6 hstack justify-content-between">Apartment Type: <p class="text-end mb-0">
+                            {{propertyType}} </p>
+                    </div>
+                    <div class="col-6 hstack justify-content-between">Total Area: <p class="text-end mb-0">{{sqft}}</p>
+                    </div>
                 </div>
-            </div>
 
 
-            <div class="row justify-content-between mb-2 ">
-                <div class="col-6 hstack justify-content-between bg-dark-gray">Bedrooms: <p class="text-end mb-0">
-                        {{bedrooms}}</p>
+                <div class="row justify-content-between mb-2 ">
+                    <div class="col-6 hstack justify-content-between bg-dark-gray">Bedrooms: <p class="text-end mb-0">
+                            {{bedrooms}}</p>
+                    </div>
+                    <div class="col-6 hstack justify-content-between bg-dark-gray">View: <p
+                            class="text-end text-capitalize mb-0">{{view}}</p>
+                    </div>
                 </div>
-                <div class="col-6 hstack justify-content-between bg-dark-gray">View: <p
-                        class="text-end text-capitalize mb-0">{{view}}</p>
-                </div>
-            </div>
 
-        </div>
-
-        <div class="bordered-box mb-4">
-            <div class="section-title">PAYMENT PLAN - 50/50</div>
-            <div class="d-flex justify-content-between gap-1 align-item-center">
-                <span class="bg-dark-gray fw-bold flex-grow-1 p-2"><strong>Selling Price:</strong>
-                    {{full_payment_one}}</span>
-                <span class="bg-dark-gray fw-bold flex-grow-1 p-2"><strong>Admin Fee:</strong>AED 2,000</span>
-                <span class="bg-dark-gray fw-bold flex-grow-1 p-2">
-                    <strong>ADM fee 2%:</strong> {{full_payment_table}}
-                    <p class="mb-0 hint-text fw-lighter">*To be paid with booking fee</p>
-                </span>
-            </div>
-
-            <table class="table table-bordered border-black mt-2">
-                <thead>
-                    <tr>
-                        <th>Description</th>
-                        <th>Date</th>
-                        <th>Percentage</th>
-                        <th>Amount (AED)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each option1}}
-                    <tr>
-                        <td>{{label}}</td>
-                        <td>{{date }}</td>
-                        <td>{{percentage}}</td>
-                        <td>{{amount}}</td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
-        </div>
-
-        <div class="bordered-box mb-4">
-            <div class="section-title">PAYMENT PLAN - 70/30 PH</div>
-            <div class="d-flex justify-content-between gap-1 align-item-center">
-                <span class="bg-dark-gray fw-bold flex-grow-1 p-2"><strong>Selling Price:</strong>
-                    {{year_payment_one}}</span>
-                <span class="bg-dark-gray fw-bold flex-grow-1 p-2"><strong>Admin Fee:</strong> AED 2,000</span>
-                <span class="bg-dark-gray fw-bold flex-grow-1 p-2">
-                    <strong>ADM fee 2%:</strong> {{year_payment_table}}
-                    <p class="mb-0 hint-text fw-lighter">*To be paid with booking fee</p>
-                </span>
             </div>
 
-            <table class="table table-bordered border-black mt-2">
-                <thead>
-                    <tr>
-                        <th>Description</th>
-                        <th>Date</th>
-                        <th>Percentage</th>
-                        <th>Amount (AED)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#each option2}}
-                    <tr>
-                        <td>{{label}}</td>
-                        <td>{{date }}</td>
-                        <td>{{percentage}}</td>
-                        <td>{{amount}}</td>
-                    </tr>
-                    {{/each}}
-                </tbody>
-            </table>
+            {{#if showFiftyPlan}}
+            <div class="bordered-box mb-4">
+                <div class="section-title">PAYMENT PLAN - 50/50</div>
+                <div class="d-flex justify-content-between gap-1 align-item-center">
+                    <span class="bg-dark-gray fw-bold flex-grow-1 p-2"><strong>Selling Price:</strong>
+                        {{full_payment_one}}</span>
+                    <span class="bg-dark-gray fw-bold flex-grow-1 p-2"><strong>Admin Fee:</strong>AED 2,000</span>
+                    <span class="bg-dark-gray fw-bold flex-grow-1 p-2">
+                        <strong>ADM fee 2%:</strong> {{full_payment_table}}
+                        <p class="mb-0 hint-text fw-lighter">*To be paid with booking fee</p>
+                    </span>
+                </div>
+
+                <table class="table table-bordered border-black mt-2">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Percentage</th>
+                            <th>Amount (AED)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each option1}}
+                        <tr>
+                            <td>{{label}}</td>
+                            <td>{{date }}</td>
+                            <td>{{percentage}}</td>
+                            <td>{{amount}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            {{/if}}
+
+            {{#if showSeventyPlan}}
+            <div class="bordered-box mb-4 ">
+                <div class="section-title">PAYMENT PLAN - 70/30 PH</div>
+                <div class="d-flex justify-content-between gap-1 align-item-center">
+                    <span class="bg-dark-gray fw-bold flex-grow-1 p-2"><strong>Selling Price:</strong>
+                        {{year_payment_one}}</span>
+                    <span class="bg-dark-gray fw-bold flex-grow-1 p-2"><strong>Admin Fee:</strong> AED 2,000</span>
+                    <span class="bg-dark-gray fw-bold flex-grow-1 p-2">
+                        <strong>ADM fee 2%:</strong> {{year_payment_table}}
+                        <p class="mb-0 hint-text fw-lighter">*To be paid with booking fee</p>
+                    </span>
+                </div>
+
+                <table class="table table-bordered border-black mt-2">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Percentage</th>
+                            <th>Amount (AED)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each option2}}
+                        <tr>
+                            <td>{{label}}</td>
+                            <td>{{date }}</td>
+                            <td>{{percentage}}</td>
+                            <td>{{amount}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+            {{/if}}
         </div>
 
         <p class="note-text fst-italic text-center">
