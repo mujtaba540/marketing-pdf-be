@@ -128,7 +128,7 @@ app.post("/generate-pdf", async (req, res) => {
     await browser.close();
 
     res.set({
-      "Content-Type": "application/pdf",
+      "Content-Type": "application/force-download",
       "Content-Disposition": `attachment; filename="sales-offer-${property.unit_code}.pdf"`,
       "Content-Length": pdfBuffer.length,
     });
