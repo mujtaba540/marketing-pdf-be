@@ -52,7 +52,10 @@ app.post("/generate-pdf", async (req, res) => {
     if (property.pricingDetails === "fifty") {
       // show 50/50 else 70/30 one
       property.showFiftyPlan = true;
-    } else {
+    } else if (property.pricingDetails === "seventy") {
+      property.showSeventyPlan = true;
+    } else if (property.pricingDetails === "both") {
+      property.showFiftyPlan = true;
       property.showSeventyPlan = true;
     }
     const page2Template = await getCompiledTemplate(page2Filename);
