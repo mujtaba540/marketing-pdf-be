@@ -86,7 +86,7 @@ app.post("/generate-pdf", async (req, res) => {
           contactUrl =
             property?.brokderDetails.toLowerCase() === "oliver".toLowerCase()
               ? "https://sha-properties.s3.eu-north-1.amazonaws.com/contact-details/v1/oliver.jpeg"
-              : "https://sha-properties.s3.eu-north-1.amazonaws.com/contact-details/v1/diana.jpeg";
+              : "https://sha-properties.s3.eu-north-1.amazonaws.com/contact-details/v1/luna.jpeg";
         }
         compiledPages.push(
           `<div class="pdf-page">${page4Template({
