@@ -83,10 +83,23 @@ app.post("/generate-pdf", async (req, res) => {
             : true;
         let contactUrl = "";
         if (showContact) {
-          contactUrl =
-            property?.brokderDetails.toLowerCase() === "oliver".toLowerCase()
-              ? "https://sha-properties.s3.eu-north-1.amazonaws.com/contact-details/v1/oliver.jpeg"
-              : "https://sha-properties.s3.eu-north-1.amazonaws.com/contact-details/v1/luna.jpeg";
+          if (
+            property?.brokderDetails?.toLowerCase() === "oliver".toLowerCase()
+          ) {
+            // ----- oliver -----
+            contactUrl =
+              "https://sha-properties.s3.eu-north-1.amazonaws.com/contact-details/v1/oliver.jpeg";
+          } else if (
+            property?.brokderDetails?.toLowerCase() === "luna".toLowerCase()
+          ) {
+            // ----- luna -----
+            contactUrl =
+              "https://sha-properties.s3.eu-north-1.amazonaws.com/contact-details/v1/luna.jpeg";
+          } else {
+            // ----- micheal hassan -----
+            contactUrl =
+              "https://sha-properties.s3.eu-north-1.amazonaws.com/contact-details/v1/micheal.jpg";
+          }
         }
         compiledPages.push(
           `<div class="pdf-page">${page4Template({
