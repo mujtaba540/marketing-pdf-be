@@ -156,6 +156,44 @@ app.post("/generate-pdf", async (req, res) => {
   }
 });
 
+app.post("/broker-agreement-pdf", async (req, res) => {
+  const { body: recordDetails } = req;
+
+  try {
+    // Precompile templates (cached)
+    const page1Template = await getCompiledTemplate("page-1-agency.handlebars");
+
+    const fullHtml = `
+    ${page1Template(recordDetails)}
+    `;
+
+    const browser = await puppeteer.launch({
+      args: ["--no-sandbox", "--disable-setuid-sandbox"], // faster and safer in some environments
+    });
+
+    const page = await browser.newPage();
+    await page.setContent(fullHtml, { waitUntil: "networkidle0" });
+
+    const pdfBuffer = await page.pdf({
+      format: "A4",
+      printBackground: true,
+    });
+
+    await browser.close();
+
+    res.set({
+      "Content-Type": "application/force-download",
+      "Content-Disposition": `attachment; filename="Agency-Agreement.pdf"`,
+      "Content-Length": pdfBuffer.length,
+    });
+
+    res.send(pdfBuffer);
+  } catch (err) {
+    console.error("PDF generation failed:", err);
+    res.status(500).json(err);
+  }
+});
+
 app.get("/", async (req, res) => {
   res.send("Server running");
 });
